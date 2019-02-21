@@ -1,10 +1,10 @@
-### Top 5 (totally subjective) Robots
+### Top 5 Robots
+#### Bag and Tag Reveals
 
+1. 179
+2. 1690
+3. 4613
+4. 5460
+5. 2471
 
-1. 1690
-2. 4613
-3. 179
-4. 2200
-5. 1678
-
-#### Last update: 2019-02-19
+#### Last update: 2019-02-20
