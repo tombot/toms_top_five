@@ -1,10 +1,10 @@
 ### Top 5 Robots
-#### Bag and Tag Reveals
+#### Reveal videos pre week 1
 
-1. 179
-2. 1690
-3. 4613
-4. 5460
-5. 2471
+1. 118
+2. 1684
+3. 1678
+4. 148
+5. 179
 
-#### Last update: 2019-02-20
+#### Last update: 2019-02-27
