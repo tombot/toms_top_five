@@ -1,10 +1,10 @@
 ### Top 5 Robots
-#### After watching first 1678 practice match
+#### After watching CVR
 
-1. 1678
-2. 1678
-3. 1678
-4. 1678
-5. 1678
+1. 1323
+2. 1323
+3. 1323
+4. 1323
+5. 1323
 
-#### Last update: 2019-03-07
+#### Last update: 2019-03-10
