@@ -1,10 +1,10 @@
 ### Top 5 Robots
-#### After watching first 1678 practice match
+#### After week 2
 
-1. 1678
+1. 1323
 2. 1678
-3. 1678
-4. 1678
-5. 1678
+3. 118
+4. 1114
+5. 973
 
 #### Last update: 2019-03-07
