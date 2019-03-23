@@ -1,10 +1,12 @@
 ### Top 5 Robots
-#### After week 2
+#### Mid week 4 regionals
 
 1. 1323
-2. 1678
-3. 118
-4. 1114
-5. 973
+2. 2056
+3. 1678
+4. 118
+5. 971
+
+#### Sorry for the delay, I caught the plague at the SF regional
 
 #### Last update: 2019-03-07
