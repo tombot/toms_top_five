@@ -1,15 +1,16 @@
 # Top 5 Robots
-## 2023: Week 1
+## 2023: Week 2
+Another fun weekend of competition. There wasn't much movement in the top 5, other than adding a brand new #1 team.
 
+1. 1323
+2. 2056
+3. 4414
+4. 1678
+5. 3005
 
-1. 2056
-2. 4414
-3. 1678
-4. 3005
-5. 2910
+#### Tom's Top Fridges
+1. 1323
 
-### Honorable mention:
-- 695
+#### Past Weeks
 
-
-#### Last update: 2023-03-07
+[2023 Week 1](2023_week1.md)
