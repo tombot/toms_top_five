@@ -16,4 +16,4 @@
 
 [2023 Week 1](2023_week1.md)
 [2023 Week 2](2023_week2.md)
-[2023 Week 2](2023_week3.md)
+[2023 Week 3](2023_week3.md)
