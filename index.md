@@ -1,6 +1,13 @@
 # Tom's Top 5
 ## 2024: Week 1
 
+### Week 1 recap
+Week 1 is in the bag! Every year, it feels like the gameplay gets sharper right from the start, and this year is no exception. I was thrilled to see so many teams showcasing reliable cycling and nailing multi-piece autos from the get-go.
+
+From what I've seen at the events, this game is going to be tough on robots. To go far, you're going to need a robot that's built like a tank. There's way less protected carpet than last year, with faster cycle times and more treacherous obstacles. There are plenty more chances for teams to find their robot on the end of a hard hit.
+
+Anyway, on to the rankings!
+
 ### Top 5 robots
 
 1. 1678
