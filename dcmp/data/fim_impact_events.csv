@@ -1,0 +1,7 @@
+event,event_name,teams_at_event,vulnerable_team_count,can_create_new_auto_qualifier,selected_impact_winner_team,selected_impact_winner_name,selected_impact_winner_prob,selected_impact_winner_points,note
+2026miliv,FIM District Livonia Event presented by Aisin,42,36,True,6099,Knight Riders,0.0,4.0,Can create a new auto-qualifier
+2026mitr2,FIM District Troy Event #2 presented by DTE Foundation,41,37,True,7716,JLW Formula 01,0.0,4.0,Can create a new auto-qualifier
+2026miesc,FIM District Escanaba Event,40,36,True,5702,Robotowatomi,0.0,0.0,Can create a new auto-qualifier
+2026mibig,FIM District Ferris State Event presented by Ferris State University,41,37,True,5213,St. Ignace SHIELD,0.0,5.0,Can create a new auto-qualifier
+2026miken,FIM District Kentwood Event presented by Dematic,39,34,True,5501,Bobcats,0.0,0.0,Can create a new auto-qualifier
+2026mifen,FIM District Fenton Event presented by Gene Haas Foundation,42,36,True,6190,Cybernetic Crusaders,0.0,4.0,Can create a new auto-qualifier

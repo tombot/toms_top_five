@@ -1,0 +1,2 @@
+event,event_name,teams_at_event,vulnerable_team_count,can_create_new_auto_qualifier,selected_impact_winner_team,selected_impact_winner_name,selected_impact_winner_prob,selected_impact_winner_points,note
+2026inwas,FIN District Washington Event presented by Toyota IN & VU CARA,25,20,True,10029,The Portotypes,0.0002666666666666667,4.0,Can create a new auto-qualifier

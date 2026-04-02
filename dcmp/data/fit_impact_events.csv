@@ -1,0 +1,4 @@
+event,event_name,teams_at_event,vulnerable_team_count,can_create_new_auto_qualifier,selected_impact_winner_team,selected_impact_winner_name,selected_impact_winner_prob,selected_impact_winner_points,note
+2026txama,FIT District Amarillo Event,33,26,True,8512,Manzano Monarchs,0.0,0.0,Can create a new auto-qualifier
+2026txdri,FIT District Dripping Springs Event,31,24,True,9311,Warhorse Robotics,0.0,7.0,Can create a new auto-qualifier
+2026txcl2,FIT District Space City @ Friendswood Event #2,32,25,True,3728,Momentum,0.0,0.0,Can create a new auto-qualifier

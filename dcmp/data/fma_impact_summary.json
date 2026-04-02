@@ -1,0 +1,18 @@
+{
+  "baseline_cutline_p10": 51.0,
+  "baseline_cutline_p50": 53.0,
+  "baseline_cutline_p90": 53.0,
+  "currently_qualified": 7,
+  "forced_impact_teams": [
+    2180,
+    2577
+  ],
+  "impact_cutline_p10": 53.0,
+  "impact_cutline_p50": 53.0,
+  "impact_cutline_p90": 54.0,
+  "impact_events_without_new_slot": [],
+  "open_slots_after_worst_case_impact": 57,
+  "open_slots_now": 59,
+  "possible_new_impact_slots": 2,
+  "remaining_events": 2
+}

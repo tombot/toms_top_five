@@ -1,0 +1,5 @@
+event,event_name,teams_at_event,vulnerable_team_count,can_create_new_auto_qualifier,selected_impact_winner_team,selected_impact_winner_name,selected_impact_winner_prob,selected_impact_winner_points,note
+2026caasv,CA District Aerospace Valley Event,5,3,True,9706,R^3   (Redwood Ranger Robotics),0.0,7.0,Can create a new auto-qualifier
+2026cacac,CA District Contra Costa Event,37,34,True,2489,The Insomniacs,0.0,0.0,Can create a new auto-qualifier
+2026caetb,CA District East Bay Event,40,35,True,5027,Event Horizon (5027),0.0,0.0,Can create a new auto-qualifier
+2026caoec,CA District Orange County Event,1,1,True,115,MVRT,0.9999333333333333,31.0,Can create a new auto-qualifier

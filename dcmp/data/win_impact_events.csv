@@ -1,0 +1,2 @@
+event,event_name,teams_at_event,vulnerable_team_count,can_create_new_auto_qualifier,selected_impact_winner_team,selected_impact_winner_name,selected_impact_winner_prob,selected_impact_winner_points,note
+2026wilax,WIN District Seven Rivers Event presented by Mathy Construction Company,34,28,True,8782,TroBotics,0.0,0.0,Can create a new auto-qualifier

@@ -1,0 +1,3 @@
+event,event_name,teams_at_event,vulnerable_team_count,can_create_new_auto_qualifier,selected_impact_winner_team,selected_impact_winner_name,selected_impact_winner_prob,selected_impact_winner_points,note
+2026onwin,ONT District Windsor Essex Great Lake Event,35,18,True,8789,The Lost 10mm Sockets,0.023466666666666667,0.0,Can create a new auto-qualifier
+2026onwel,ONT District Niagara College Event,27,14,True,5672,First Nations-STEM,0.09126666666666666,8.0,Can create a new auto-qualifier
