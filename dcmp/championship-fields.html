@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 District Championship Fields by EPA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <main class="post">
+    <p class="back-link"><a href="index.html">All districts</a></p>
+    <header class="hero">
+      <div class="hero-copy">
+        <h1>2026 District Championship Fields by EPA</h1>
+        <p>This page models every 2026 district championship field from current district ranking order, then ranks each field or division by live Statbotics EPA. California remains split into North and South, while multi-division championships are randomly assigned with a fixed seed.</p>
+        <p>Hover any point to see the team, EPA rank, and EPA. Hovering a line fades the others, and the dashed vertical marker at <strong>24</strong> gives a quick top-24 reference.</p>
+      </div>
+      <div class="metric-grid">
+        <section class="metric-card"><p class="metric-label">District championships</p><p class="metric-value">15</p><p class="metric-note">Distinct championship groups on the page</p></section>
+        <section class="metric-card"><p class="metric-label">Modeled divisions</p><p class="metric-value">21</p><p class="metric-note">Separate plotted field lines</p></section>
+        <section class="metric-card"><p class="metric-label">Teams shown</p><p class="metric-value">980</p><p class="metric-note">Qualified teams in the modeled fields</p></section>
+        <section class="metric-card"><p class="metric-label">Top EPA</p><p class="metric-value">358.75</p><p class="metric-note">Highest EPA in the full set</p></section>
+      </div>
+    </header>
+    <section class="chart-page-section">
+      <div class="section-heading">
+        <h2>EPA distribution by district championship field</h2>
+        <p>Each line is a district championship or division, ranked internally by EPA from left to right.</p>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-inner">
+          <div id="chart" class="chart-frame"></div>
+        </div>
+      </div>
+    </section>
+    <section class="filter-shell">
+      <div class="section-heading">
+        <h2>Line controls</h2>
+        <div class="filter-heading-actions">
+          <button id="show-all" class="filter-link" type="button">show all</button>
+          <button id="hide-all" class="filter-link" type="button">hide all</button>
+        </div>
+      </div>
+      <p class="timestamp">Hovering a line fades the others. Use the district links below to simplify the view.</p>
+      <div id="trace-controls" class="filter-list"></div>
+    </section>
+    <p class="timestamp">Updated from live data for the 2026 season.</p>
+  </main>
+  <script>
+    const traces = [{"type":"scatter","mode":"lines+markers","name":"FIRST California - Northern California","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],"y":[358.75,331.69,313.54,233.43,228.2,195.51,195.02,193.61,174.78,172.79,170.98,167.46,161.42,158.85,152.43,148.46,145.62,142.38,137.45,123.87,112.35,112.22,111.7,108.77,108.52,106.85,104.6,103.25,101.85,99.67,98.31,94.19,93.82,89.78,89.71,88.4,77.4,71.88,71.55,70.25,67.75,64.48,63.42,63.41,58.63,57.57,57.55,56.54,56.04,54.88,48.94,48.68,45.4,38.47,33.76,31.21,28.33,28.12,25.59,15.69],"customdata":[["1678"],["254"],["1323"],["604"],["9470"],["5940"],["581"],["3256"],["2813"],["5026"],["6036"],["972"],["4698"],["841"],["846"],["6962"],["1868"],["3045"],["5507"],["2073"],["3970"],["5817"],["8"],["2135"],["3257"],["670"],["3501"],["8048"],["5104"],["6238"],["9400"],["7419"],["7667"],["840"],["6418"],["115"],["8033"],["5419"],["971"],["114"],["8793"],["7137"],["1072"],["1857"],["1967"],["3598"],["253"],["2204"],["1671"],["766"],["6305"],["192"],["5700"],["4135"],["701"],["6814"],["6662"],["4990"],["10339"],["6665"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST California - Southern California","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],"y":[332.63,237.87,218.96,195.34,175.47,168.51,157.25,151.38,150.2,147.8,144.23,140.02,139.75,132.43,130.51,115.56,108.41,106.81,101.5,100.65,99.3,96.94,94.34,92.28,84.07,83.25,82.72,81.77,81.23,76.44,75.56,75.29,72.19,71.7,71.27,68.81,68.55,60.46,56.26,54.82,52.32,49.18,48.32,48.18,47.77,45.63,45.2,44.78,44.76,41.95,41.94,41.17,35.67,32.57,31.62,29.24,27.63,21.38,20.61,18.54],"customdata":[["4414"],["3476"],["3128"],["9408"],["973"],["599"],["3512"],["687"],["2102"],["7415"],["6995"],["294"],["4201"],["4322"],["2659"],["1538"],["3255"],["5199"],["2637"],["1388"],["8119"],["696"],["9452"],["9084"],["4415"],["4738"],["2584"],["1160"],["4"],["5136"],["5137"],["4123"],["3647"],["5474"],["2485"],["2429"],["4419"],["2710"],["812"],["3408"],["1148"],["6220"],["5805"],["7157"],["3925"],["3309"],["6695"],["1197"],["2984"],["1138"],["589"],["4999"],["2658"],["3749"],["7042"],["2404"],["4079"],["968"],["10586"],["11024"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST Chesapeake District Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54],"y":[185.32,175.11,162.78,139.09,131.22,128.93,124.59,123.66,123.04,116.45,113.51,111.6,109.48,106.51,99.34,98.84,94.98,93.78,92.66,91.44,90.81,90.25,89.36,88.1,85.44,81.13,77.69,72.22,68.64,68.35,66.73,62.93,62.84,61.79,61.12,60.31,59.3,57.82,57.01,56.57,55.42,53.55,52.65,45.66,43.44,43.28,37.52,35.73,34.52,32.93,32.38,24.63,24.58,23.66],"customdata":[["9072"],["2106"],["422"],["836"],["2199"],["449"],["619"],["888"],["1731"],["11415"],["1629"],["401"],["1727"],["4099"],["2537"],["5338"],["122"],["346"],["1908"],["8592"],["686"],["5549"],["1262"],["614"],["1086"],["3748"],["540"],["2028"],["4472"],["3136"],["10224"],["2890"],["404"],["5243"],["11318"],["4541"],["1389"],["5804"],["1895"],["9033"],["620"],["3939"],["2377"],["10004"],["3258"],["5724"],["2068"],["11425"],["339"],["3361"],["8590"],["10679"],["1719"],["2421"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST Indiana State Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38],"y":[220.11,155.0,132.3,127.07,121.72,117.9,99.01,98.91,98.03,94.98,94.93,92.55,87.74,84.32,76.8,76.12,74.51,72.17,71.91,69.91,64.65,63.63,55.08,53.93,53.93,52.94,51.68,44.56,44.1,41.44,38.7,38.34,34.21,33.72,33.02,32.24,25.3,15.9],"customdata":[["7457"],["1501"],["4272"],["10021"],["3940"],["461"],["3494"],["1024"],["5010"],["3176"],["234"],["868"],["761"],["8116"],["6721"],["829"],["447"],["5402"],["1720"],["6498"],["1646"],["9431"],["7617"],["45"],["2867"],["9119"],["1741"],["1747"],["5484"],["135"],["6956"],["4926"],["4982"],["8430"],["4580"],["9491"],["7657"],["10434"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST Israel District Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45],"y":[130.09,92.21,87.84,86.81,80.55,69.01,68.42,65.67,61.42,61.15,56.6,56.58,55.03,52.24,50.82,48.97,47.65,47.62,45.76,43.01,42.85,40.22,35.83,35.09,34.57,34.57,32.41,30.16,26.33,24.8,23.74,23.74,23.74,23.74,23.74,23.74,23.74,23.74,23.74,23.11,21.54,18.7,18.12,16.88,12.51],"customdata":[["1690"],["2231"],["3339"],["2630"],["2230"],["1577"],["1942"],["1574"],["4590"],["3075"],["2096"],["4744"],["4320"],["3065"],["1937"],["5554"],["3316"],["4338"],["3083"],["4586"],["3211"],["5291"],["4416"],["2679"],["3388"],["5135"],["1576"],["4661"],["2212"],["3835"],["10935"],["10986"],["11070"],["11329"],["11332"],["11390"],["11471"],["11478"],["11480"],["10139"],["1943"],["10695"],["1954"],["4319"],["1580"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST Mid-Atlantic District Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],"y":[196.67,190.54,166.74,146.35,135.88,127.96,115.21,114.96,114.6,113.99,108.45,104.08,100.79,98.94,96.82,94.83,81.23,80.39,76.34,74.32,73.85,70.76,68.18,64.39,59.55,58.71,56.95,52.97,50.05,49.55,48.0,45.55,45.15,44.96,41.82,41.74,39.88,38.65,37.98,37.85,37.78,37.32,36.14,34.63,34.12,33.17,33.16,29.03,28.23,27.15,26.27,23.82,21.7,21.27,20.88,20.45,18.74,17.22,14.49,12.93],"customdata":[["341"],["316"],["8513"],["1391"],["9094"],["103"],["5895"],["2539"],["2607"],["1218"],["272"],["2590"],["8706"],["11"],["1403"],["5181"],["1676"],["7587"],["1640"],["1089"],["4285"],["5401"],["193"],["3637"],["708"],["1923"],["6921"],["555"],["222"],["5789"],["1807"],["9027"],["56"],["365"],["10584"],["2016"],["10070"],["9015"],["1168"],["1712"],["5113"],["423"],["10157"],["4575"],["10993"],["10918"],["427"],["486"],["223"],["1811"],["10979"],["1672"],["2554"],["7110"],["10949"],["8075"],["10400"],["5732"],["9416"],["41"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST North Carolina State Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"y":[224.33,185.18,112.95,109.22,98.44,83.56,81.85,77.42,76.83,75.6,71.64,70.49,67.19,63.22,59.69,57.08,55.39,54.56,51.82,48.79,45.35,44.92,40.19,38.95,38.86,38.24,37.85,36.74,35.24,33.33,32.93,30.77,29.65,28.8,28.39,27.48,27.22,26.84,25.41,25.02,23.6,23.28,22.94,22.72,21.46,20.67,19.67,18.08,15.59,14.8],"customdata":[["9496"],["9032"],["2724"],["3506"],["4795"],["6500"],["9297"],["2059"],["4561"],["1533"],["8429"],["4534"],["7918"],["7890"],["8727"],["6502"],["4829"],["5160"],["4935"],["4828"],["1225"],["6894"],["5607"],["11179"],["11377"],["6888"],["3229"],["10302"],["2640"],["6004"],["10107"],["8205"],["3196"],["7763"],["8738"],["2682"],["6639"],["5727"],["8746"],["9559"],["9150"],["10077"],["3336"],["11353"],["8757"],["9788"],["10248"],["11285"],["11146"],["10121"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST Ontario Provincial Championship - Division 1","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"y":[280.61,204.36,202.74,178.08,175.18,143.01,139.71,137.74,124.46,121.36,109.19,102.99,98.33,95.83,91.11,87.24,86.87,76.04,65.9,61.61,58.11,50.11,49.8,48.33,41.61,39.47,37.76,37.39,35.5,35.04,33.63,31.47,30.9,30.47,29.28,28.67,27.36,24.96,23.27,23.02,20.98,20.6,19.01,18.34,15.32,10.79,10.6,10.2,7.89,-4.1],"customdata":[["2056"],["4678"],["7558"],["1325"],["2200"],["5406"],["9098"],["9785"],["4069"],["4039"],["5885"],["4152"],["1305"],["2702"],["5409"],["865"],["4920"],["2706"],["1360"],["7200"],["9569"],["10554"],["1310"],["2852"],["9262"],["1334"],["5024"],["8349"],["7480"],["5036"],["5870"],["8729"],["9062"],["9659"],["6632"],["6875"],["854"],["9589"],["5689"],["6864"],["5912"],["919"],["8764"],["4308"],["10514"],["8850"],["6859"],["3543"],["6135"],["6865"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST Ontario Provincial Championship - Division 2","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"y":[251.73,215.55,180.7,166.27,165.63,142.26,137.1,136.62,136.55,135.18,134.2,129.44,112.09,103.41,90.53,83.34,82.6,82.15,68.68,63.84,61.99,55.98,55.54,55.44,51.57,49.82,47.43,46.84,46.32,43.75,42.29,42.08,41.37,38.13,37.02,32.74,32.16,28.97,27.19,26.82,26.67,24.31,24.13,23.67,21.78,20.99,18.02,12.41,9.75,7.3],"customdata":[["4946"],["1114"],["4476"],["7520"],["610"],["188"],["1241"],["10015"],["3683"],["2935"],["11270"],["8884"],["4907"],["7902"],["3161"],["4917"],["2609"],["4976"],["6978"],["5032"],["4951"],["3739"],["7712"],["5031"],["11227"],["8089"],["772"],["7603"],["7476"],["3756"],["6110"],["2708"],["2386"],["1229"],["8081"],["10611"],["6397"],["11428"],["4015"],["10167"],["9575"],["781"],["9580"],["2013"],["2634"],["771"],["5596"],["9782"],["11362"],["11002"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST South Carolina State Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32],"y":[86.22,81.63,73.41,68.65,66.47,55.71,51.52,42.61,41.88,41.32,38.86,37.54,36.24,33.48,33.4,33.06,32.09,31.68,30.82,30.44,29.5,29.27,28.99,26.81,26.79,25.11,24.0,22.59,20.87,15.35,9.84,9.23],"customdata":[["4451"],["8575"],["1287"],["6366"],["342"],["343"],["1758"],["1051"],["1319"],["11167"],["281"],["7085"],["10367"],["11308"],["11254"],["3490"],["4533"],["11424"],["6167"],["1102"],["2815"],["11398"],["11368"],["4864"],["10231"],["3489"],["8137"],["10599"],["10361"],["1293"],["10591"],["10388"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST Wisconsin District Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36],"y":[205.21,166.28,131.84,123.96,110.56,109.1,100.99,99.14,93.26,91.17,88.13,80.05,79.69,78.83,77.85,76.13,70.39,67.66,66.3,63.18,58.61,57.99,57.03,53.05,51.25,45.66,43.74,41.07,36.7,36.56,36.46,36.0,31.32,30.56,26.6,24.73],"customdata":[["1306"],["1732"],["1259"],["1714"],["1792"],["2194"],["7915"],["4786"],["93"],["930"],["3197"],["2062"],["5826"],["8744"],["171"],["706"],["4531"],["2202"],["6574"],["2506"],["10264"],["6421"],["6381"],["6223"],["1675"],["10553"],["6732"],["10909"],["4021"],["2826"],["9149"],["2830"],["537"],["8701"],["5586"],["7900"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST in Michigan State Championship - Division 1","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],"y":[316.84,214.41,195.88,175.23,170.68,151.66,136.2,134.16,129.49,129.32,125.05,115.22,114.47,113.82,105.27,104.79,97.1,95.13,93.95,91.5,85.55,83.8,83.77,81.89,80.64,78.76,77.19,68.55,68.25,66.88,65.89,63.12,60.41,58.04,53.29,51.25,42.14,37.29,31.6,23.85],"customdata":[["27"],["2767"],["6002"],["3538"],["2337"],["201"],["1498"],["2054"],["6152"],["1189"],["3641"],["51"],["3668"],["8280"],["5086"],["10633"],["3603"],["8373"],["7056"],["7174"],["5066"],["4003"],["9757"],["1684"],["8728"],["8126"],["123"],["6121"],["4381"],["4956"],["7501"],["141"],["8352"],["5559"],["1711"],["2619"],["2673"],["11503"],["4838"],["9251"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST in Michigan State Championship - Division 2","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],"y":[282.14,208.96,201.23,188.51,172.89,158.48,149.22,147.72,132.77,122.65,122.49,116.9,112.33,106.13,104.27,103.67,103.16,100.41,96.84,90.79,90.25,86.59,72.39,68.9,68.72,67.99,64.18,60.34,58.27,58.07,57.73,55.74,51.52,48.59,41.9,40.32,38.14,33.64,28.3,22.26],"customdata":[["7769"],["4237"],["5460"],["4362"],["33"],["7166"],["2851"],["5712"],["3656"],["2611"],["3572"],["1025"],["5907"],["3322"],["9210"],["8517"],["5843"],["7188"],["5152"],["3175"],["10349"],["4967"],["7790"],["5676"],["3767"],["7195"],["5561"],["1076"],["217"],["4422"],["5531"],["5567"],["2834"],["8397"],["11493"],["9255"],["5424"],["5248"],["11490"],["9679"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST in Michigan State Championship - Division 3","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],"y":[176.03,170.48,164.16,162.75,157.15,147.21,141.04,127.32,126.55,113.32,109.58,108.35,104.06,102.62,98.08,98.07,90.73,89.24,82.53,80.41,76.27,74.99,74.81,74.64,69.47,66.62,64.65,56.91,56.38,53.85,53.8,45.34,42.39,42.03,40.26,39.94,39.52,32.74,32.35,30.86],"customdata":[["2137"],["3414"],["67"],["3539"],["6090"],["1918"],["8608"],["5675"],["503"],["894"],["5216"],["2075"],["6615"],["5144"],["7054"],["5046"],["3536"],["5166"],["7197"],["1188"],["302"],["8873"],["6114"],["5708"],["3357"],["7692"],["3688"],["4327"],["11386"],["7196"],["9312"],["9541"],["2405"],["5577"],["6085"],["8424"],["4680"],["3632"],["2224"],["10577"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST in Michigan State Championship - Division 4","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],"y":[164.79,134.97,132.08,127.16,123.38,119.06,112.81,106.41,106.36,105.85,102.69,101.84,101.61,100.09,98.79,92.74,92.74,91.45,90.83,90.16,87.12,85.24,83.38,82.03,81.2,76.35,75.49,72.82,71.93,70.22,68.52,66.94,61.75,60.61,59.55,58.06,53.66,53.53,51.82,26.79],"customdata":[["1701"],["9245"],["68"],["5193"],["4391"],["469"],["1481"],["9572"],["5533"],["226"],["910"],["8612"],["4398"],["5660"],["2960"],["548"],["5462"],["4779"],["85"],["818"],["247"],["1506"],["3707"],["6753"],["5534"],["4855"],["245"],["9215"],["7211"],["3604"],["3452"],["573"],["6528"],["5926"],["2832"],["8179"],["10666"],["2959"],["6120"],["7768"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST in Texas District Championship - Division 1","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45],"y":[211.18,190.95,160.17,160.06,143.19,142.23,135.58,122.37,118.21,103.11,97.74,97.73,97.27,96.95,93.68,87.14,83.9,80.83,78.8,75.48,73.9,73.51,71.09,64.37,62.98,55.41,53.4,50.72,50.47,48.39,47.07,42.08,38.87,38.13,36.43,36.43,33.24,32.1,30.46,27.61,23.59,20.9,19.47,17.92,12.37],"customdata":[["6369"],["6800"],["148"],["2468"],["2583"],["6773"],["3847"],["3005"],["1296"],["2728"],["2881"],["3310"],["5572"],["8576"],["4206"],["324"],["418"],["457"],["6377"],["7503"],["3735"],["5427"],["7492"],["2689"],["9506"],["2687"],["4192"],["3679"],["3481"],["2158"],["10118"],["4734"],["6901"],["7691"],["3676"],["7616"],["8507"],["5411"],["10032"],["9492"],["5417"],["8370"],["9444"],["5503"],["8573"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"FIRST in Texas District Championship - Division 2","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45],"y":[236.02,212.1,166.56,158.5,152.37,121.61,105.79,88.49,87.64,86.68,85.74,82.41,81.87,80.67,78.54,74.89,72.62,71.62,63.01,62.7,62.08,61.21,54.4,52.6,52.51,51.76,51.43,50.61,50.07,50.04,49.39,48.17,45.31,44.42,39.66,39.26,36.93,36.06,33.99,31.1,28.58,26.31,23.89,22.8,21.07],"customdata":[["9128"],["10340"],["118"],["2848"],["2582"],["624"],["3035"],["5829"],["4639"],["8858"],["8515"],["2714"],["7506"],["2587"],["9140"],["4063"],["231"],["436"],["8749"],["6672"],["10014"],["127"],["7312"],["10385"],["6357"],["9418"],["1255"],["5261"],["3561"],["1477"],["11242"],["8769"],["5414"],["8088"],["1164"],["9136"],["4295"],["11178"],["9577"],["11200"],["10913"],["11169"],["4153"],["10994"],["11277"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"New England District Championship - Division 1","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"y":[251.46,248.76,205.85,196.25,194.62,172.51,160.62,144.92,138.46,136.89,131.66,115.92,115.58,110.24,109.45,107.24,96.67,91.6,91.07,90.0,83.63,80.15,79.93,77.92,75.15,70.35,67.34,63.04,62.52,57.58,57.19,55.67,55.07,53.9,53.47,52.95,48.2,47.07,39.26,38.42,37.72,36.54,35.9,35.75,34.8,31.04,30.79,24.78,22.81,18.73],"customdata":[["6328"],["6329"],["176"],["190"],["1768"],["2067"],["5000"],["1073"],["1058"],["133"],["8046"],["2713"],["2079"],["177"],["1153"],["78"],["319"],["1100"],["131"],["4311"],["4761"],["3146"],["58"],["1512"],["155"],["1729"],["2648"],["2876"],["228"],["175"],["4473"],["4564"],["178"],["5962"],["1735"],["429"],["348"],["4572"],["11483"],["3597"],["6201"],["61"],["11131"],["1307"],["9710"],["11175"],["7153"],["509"],["3623"],["8708"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"New England District Championship - Division 2","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"y":[293.05,255.74,251.4,213.77,177.41,173.09,167.31,163.3,161.34,155.68,154.25,151.57,145.31,138.83,122.46,121.26,120.51,115.8,114.97,108.05,102.81,96.55,92.31,86.82,86.63,85.89,84.9,83.04,81.52,77.47,75.88,69.69,68.34,65.51,63.5,59.53,59.0,54.61,54.03,53.89,44.6,41.81,40.81,40.45,38.09,31.59,30.59,28.66,28.54,27.85],"customdata":[["3467"],["125"],["5687"],["195"],["571"],["238"],["7407"],["5813"],["2877"],["10254"],["2370"],["6324"],["95"],["88"],["236"],["1699"],["4909"],["166"],["5422"],["1922"],["8013"],["8085"],["8724"],["230"],["3323"],["839"],["5112"],["1119"],["7674"],["7127"],["9644"],["2423"],["151"],["8709"],["172"],["8889"],["558"],["3566"],["10973"],["4905"],["173"],["6153"],["10063"],["9055"],["2170"],["1071"],["11157"],["4041"],["8567"],["8544"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"Pacific Northwest District Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],"y":[242.53,197.04,193.09,179.11,171.57,163.21,157.54,156.25,149.3,146.66,138.58,131.86,121.31,117.52,115.78,114.32,113.62,113.26,108.69,108.59,105.89,103.58,102.54,100.23,98.88,96.69,95.06,93.49,93.23,91.56,85.88,85.41,84.04,78.6,72.16,69.97,67.4,65.05,63.94,63.28,62.4,59.86,54.91,48.56,48.09,46.02,42.01,27.87,18.1,13.66],"customdata":[["2046"],["9023"],["1540"],["5468"],["4089"],["360"],["1425"],["955"],["948"],["4469"],["6696"],["2471"],["1778"],["10079"],["4512"],["3674"],["4488"],["4915"],["9450"],["2412"],["3218"],["997"],["3663"],["5937"],["2910"],["957"],["2522"],["4450"],["492"],["2521"],["753"],["1318"],["9430"],["2811"],["8051"],["2926"],["7034"],["4513"],["8248"],["10416"],["4125"],["488"],["4061"],["2374"],["1595"],["5920"],["10991"],["1983"],["8896"],["1294"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"},{"type":"scatter","mode":"lines+markers","name":"Peachtree District State Championship","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45],"y":[251.48,152.56,149.52,148.98,115.2,110.9,97.36,95.91,87.66,83.51,81.73,67.74,62.46,59.84,58.16,56.84,55.7,55.12,54.92,53.0,52.28,49.52,43.18,41.66,40.57,39.53,38.14,36.42,35.53,32.89,31.72,29.05,27.69,26.85,26.56,25.92,24.21,22.81,22.68,20.77,18.14,17.71,17.67,15.79,12.62],"customdata":[["1833"],["1771"],["2974"],["1002"],["6919"],["4188"],["6829"],["4189"],["1683"],["4026"],["1261"],["1648"],["8080"],["6340"],["5109"],["1414"],["3635"],["8866"],["6925"],["1746"],["6772"],["10482"],["9477"],["3329"],["832"],["6705"],["7451"],["4509"],["9480"],["3344"],["6023"],["6905"],["5900"],["6887"],["5219"],["8736"],["3091"],["11174"],["6910"],["3815"],["8815"],["9522"],["5608"],["9561"],["11214"]],"opacity":0.9,"line":{"width":2.5},"marker":{"size":6},"hovertemplate":"%{fullData.name}<br>EPA rank: %{x}<br>EPA: %{y:.2f}<br>Team: %{customdata[0]}<extra></extra>"}];
+    const layout = {"title":"2026 District Championship Fields by EPA","xaxis":{"title":"EPA Rank Within District Championship / Division"},"yaxis":{"title":"EPA"},"hovermode":"closest","paper_bgcolor":"#ffffff","plot_bgcolor":"#ffffff","font":{"family":"Open Sans, sans-serif","color":"#22313f"},"shapes":[{"type":"line","xref":"x","yref":"paper","x0":24,"x1":24,"y0":0,"y1":1,"line":{"color":"#333333","width":2,"dash":"dash"}}],"margin":{"l":72,"r":30,"t":54,"b":70},"legend":{"orientation":"h","y":-0.2}};
+    const groupedControls = [{"district":"FIRST California - Northern California","traceNames":["FIRST California - Northern California"]},{"district":"FIRST California - Southern California","traceNames":["FIRST California - Southern California"]},{"district":"FIRST Chesapeake District Championship","traceNames":["FIRST Chesapeake District Championship"]},{"district":"FIRST Indiana State Championship","traceNames":["FIRST Indiana State Championship"]},{"district":"FIRST Israel District Championship","traceNames":["FIRST Israel District Championship"]},{"district":"FIRST Mid-Atlantic District Championship","traceNames":["FIRST Mid-Atlantic District Championship"]},{"district":"FIRST North Carolina State Championship","traceNames":["FIRST North Carolina State Championship"]},{"district":"FIRST Ontario Provincial Championship","traceNames":["FIRST Ontario Provincial Championship - Division 1","FIRST Ontario Provincial Championship - Division 2"]},{"district":"FIRST South Carolina State Championship","traceNames":["FIRST South Carolina State Championship"]},{"district":"FIRST Wisconsin District Championship","traceNames":["FIRST Wisconsin District Championship"]},{"district":"FIRST in Michigan State Championship","traceNames":["FIRST in Michigan State Championship - Division 1","FIRST in Michigan State Championship - Division 2","FIRST in Michigan State Championship - Division 3","FIRST in Michigan State Championship - Division 4"]},{"district":"FIRST in Texas District Championship","traceNames":["FIRST in Texas District Championship - Division 1","FIRST in Texas District Championship - Division 2"]},{"district":"New England District Championship","traceNames":["New England District Championship - Division 1","New England District Championship - Division 2"]},{"district":"Pacific Northwest District Championship","traceNames":["Pacific Northwest District Championship"]},{"district":"Peachtree District State Championship","traceNames":["Peachtree District State Championship"]}];
+    const chart = document.getElementById("chart");
+    const controls = document.getElementById("trace-controls");
+    const baseOpacity = 0.9;
+    const dimmedOpacity = 0.12;
+    const hiddenState = new Array(traces.length).fill(false);
+    const traceIndexByName = Object.fromEntries(traces.map((trace, index) => [trace.name, index]));
+
+    function syncHiddenStateFromPlot() {
+      traces.forEach((_, index) => {
+        const visible = chart.data[index] && chart.data[index].visible;
+        hiddenState[index] = visible === "legendonly";
+      });
+    }
+
+    function setIndexesVisible(indexes, visible) {
+      indexes.forEach((index) => {
+        hiddenState[index] = !visible;
+      });
+      Plotly.restyle(chart, {visible: visible ? true : "legendonly"}, indexes);
+    }
+
+    function renderControls() {
+      controls.replaceChildren();
+      groupedControls.forEach((group) => {
+        if (group.traceNames.length === 1) {
+          const row = document.createElement("div");
+          row.className = "filter-row";
+
+          const head = document.createElement("div");
+          head.className = "filter-row-header";
+
+          const title = document.createElement("label");
+          title.className = "filter-row-title";
+
+          const index = traceIndexByName[group.traceNames[0]];
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = !hiddenState[index];
+          checkbox.addEventListener("change", () => {
+            setIndexesVisible([index], checkbox.checked);
+          });
+
+          const text = document.createElement("span");
+          text.textContent = group.district;
+
+          title.appendChild(checkbox);
+          title.appendChild(text);
+
+          const actions = document.createElement("div");
+          actions.className = "filter-row-actions";
+
+          const showLink = document.createElement("button");
+          showLink.type = "button";
+          showLink.className = "filter-link";
+          showLink.textContent = "show";
+          showLink.addEventListener("click", () => setGroupVisible(group.traceNames, true));
+
+          const hideLink = document.createElement("button");
+          hideLink.type = "button";
+          hideLink.className = "filter-link";
+          hideLink.textContent = "hide";
+          hideLink.addEventListener("click", () => setGroupVisible(group.traceNames, false));
+
+          actions.appendChild(showLink);
+          actions.appendChild(hideLink);
+          head.appendChild(title);
+          head.appendChild(actions);
+          row.appendChild(head);
+          controls.appendChild(row);
+          return;
+        }
+
+        const details = document.createElement("details");
+        details.className = "filter-row filter-details";
+        details.open = true;
+
+        const summary = document.createElement("summary");
+        const head = document.createElement("div");
+        head.className = "filter-row-header";
+
+        const title = document.createElement("div");
+        title.className = "filter-row-title";
+
+        const chevron = document.createElement("span");
+        chevron.className = "filter-chevron";
+        chevron.textContent = "›";
+
+        const text = document.createElement("span");
+        text.textContent = group.district;
+
+        title.appendChild(chevron);
+        title.appendChild(text);
+
+        const actions = document.createElement("div");
+        actions.className = "filter-row-actions";
+
+        const showLink = document.createElement("button");
+        showLink.type = "button";
+        showLink.className = "filter-link";
+        showLink.textContent = "show";
+        showLink.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setGroupVisible(group.traceNames, true);
+        });
+
+        const hideLink = document.createElement("button");
+        hideLink.type = "button";
+        hideLink.className = "filter-link";
+        hideLink.textContent = "hide";
+        hideLink.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setGroupVisible(group.traceNames, false);
+        });
+
+        actions.appendChild(showLink);
+        actions.appendChild(hideLink);
+        head.appendChild(title);
+        head.appendChild(actions);
+        summary.appendChild(head);
+        details.appendChild(summary);
+
+        const children = document.createElement("div");
+        children.className = "filter-children";
+
+        group.traceNames.forEach((name) => {
+          const index = traceIndexByName[name];
+          const child = document.createElement("div");
+          child.className = "filter-child";
+
+          const childTitle = document.createElement("label");
+          childTitle.className = "filter-child-title";
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = !hiddenState[index];
+          checkbox.addEventListener("change", () => {
+            setIndexesVisible([index], checkbox.checked);
+          });
+
+          const text = document.createElement("span");
+          text.textContent = name.replace(`${group.district} - `, "");
+
+          childTitle.appendChild(checkbox);
+          childTitle.appendChild(text);
+          child.appendChild(childTitle);
+          children.appendChild(child);
+        });
+
+        details.appendChild(children);
+        controls.appendChild(details);
+      });
+    }
+
+    function setAllVisible(visible) {
+      setIndexesVisible(traces.map((_, index) => index), visible);
+    }
+
+    function setGroupVisible(traceNames, visible) {
+      const indexes = traceNames.map((name) => traceIndexByName[name]);
+      setIndexesVisible(indexes, visible);
+    }
+
+    function applyHoverFocus(focusIndex) {
+      const opacities = traces.map((_, index) => {
+        if (hiddenState[index]) return baseOpacity;
+        return index === focusIndex ? 1 : dimmedOpacity;
+      });
+      const widths = traces.map((_, index) => index === focusIndex ? 4.5 : 2.5);
+      const markerSizes = traces.map((_, index) => index === focusIndex ? 8 : 6);
+      Plotly.restyle(chart, {opacity: opacities, "line.width": widths, "marker.size": markerSizes});
+    }
+
+    function resetHoverFocus() {
+      const opacities = traces.map(() => baseOpacity);
+      const widths = traces.map(() => 2.5);
+      const markerSizes = traces.map(() => 6);
+      Plotly.restyle(chart, {opacity: opacities, "line.width": widths, "marker.size": markerSizes});
+    }
+
+    document.getElementById("show-all").addEventListener("click", () => setAllVisible(true));
+    document.getElementById("hide-all").addEventListener("click", () => setAllVisible(false));
+
+    Plotly.newPlot(chart, traces, layout, {responsive: true, displaylogo: false}).then(() => {
+      syncHiddenStateFromPlot();
+      renderControls();
+      chart.on("plotly_restyle", (eventData) => {
+        const update = Array.isArray(eventData) ? eventData[0] : null;
+        if (!update || !Object.prototype.hasOwnProperty.call(update, "visible")) return;
+        syncHiddenStateFromPlot();
+        renderControls();
+      });
+      chart.on("plotly_hover", (eventData) => {
+        if (!eventData.points || eventData.points.length === 0) return;
+        applyHoverFocus(eventData.points[0].curveNumber);
+      });
+      chart.on("plotly_unhover", () => {
+        resetHoverFocus();
+      });
+    });
+  </script>
+</body>
+</html>
